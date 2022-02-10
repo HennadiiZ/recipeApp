@@ -1,0 +1,6 @@
+.list-group-item{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+
+}
