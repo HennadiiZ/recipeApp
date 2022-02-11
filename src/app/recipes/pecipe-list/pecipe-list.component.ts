@@ -8,6 +8,7 @@ import { Recipe } from '../recipe.model';
 })
 export class PecipeListComponent implements OnInit {
 
+  public booleanValue: boolean = true;
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
    
   recipes: Recipe[] = [
@@ -22,6 +23,7 @@ export class PecipeListComponent implements OnInit {
 
   onRecipeSelected(recipe: Recipe): void {
       this.recipeWasSelected.emit(recipe);
+      this.booleanValue = false;
   }
 
 }
