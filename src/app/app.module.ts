@@ -10,6 +10,9 @@ import { PecipeDetailComponent } from './recipes/pecipe-detail/pecipe-detail.com
 import { RecipeItemComponent } from './recipes/pecipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { BasicHighLightDirective } from './directives/basic-highlight.directive';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     PecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    BasicHighLightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
