@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ShoppingList } from 'src/app/shared/shopping-list.model';
 
 @Injectable({
@@ -6,26 +6,23 @@ import { ShoppingList } from 'src/app/shared/shopping-list.model';
 })
 export class ShoppingListService {
 
+  ingredientsChanged = new EventEmitter<ShoppingList[]>();
   infoMessage: string = '';
 
-  private ingredients: ShoppingList[] = [
-    // new ShoppingList('apple', 5),
-    // new ShoppingList('tomatoes', 15),
-  ]
+  private ingredients: ShoppingList[] = []
 
 
   constructor(){}
 
   public getIngredients(): ShoppingList[] {
-      // return this.ingredients.slice();
-      return this.ingredients
+    return this.ingredients.slice();
   }
 
   addIngredient(ingredient:ShoppingList ){
-      // this.ingredients.push(ingredient);
-
+      
       if(ingredient.amount && ingredient.name.trim()){
         this.ingredients.push(ingredient);
+        this.ingredientsChanged.emit(this.ingredients.slice())
         this.infoMessage = '';
       } else{
         this.infoMessage = 'These fields cannot be empty.'

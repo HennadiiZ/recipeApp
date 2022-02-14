@@ -7,45 +7,21 @@ import { ShoppingListService } from '../_core/services/shopping-list.service';
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-// export class ShoppingListComponent implements OnInit {
-//   ingredients: ShoppingList[] = [
-//     // new ShoppingList('apple', 5),
-//     // new ShoppingList('tomatoes', 15),
-//   ]
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-//   onIngredientAdded(Ingredient: ShoppingList){
-//      this.ingredients.push(Ingredient)
-//   }
-
-// }
 
 export class ShoppingListComponent implements OnInit {
-  // ingredients: ShoppingList[] = [
-     // new ShoppingList('apple', 5),
-     // new ShoppingList('tomatoes', 15),
-  // ]
+
   infoMessage: string = '';
   ingredients!: ShoppingList[];
 
   constructor(public shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
-    this.ingredients = this.shoppingListService.getIngredients()
+    this.ingredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.ingredientsChanged.subscribe(
+      (ingredients: ShoppingList[]) => {
+        this.ingredients = ingredients;
+      }
+    )
   }
-
-  // onIngredientAdded(Ingredient: ShoppingList){
-
-  //     if(Ingredient.amount && Ingredient.name.trim()){
-  //       this.ingredients.push(Ingredient)
-  //       this.infoMessage = '';
-  //     } else{
-  //       this.infoMessage = 'These fields cannot be empty.'
-  //     } 
-  // }
 
 }
