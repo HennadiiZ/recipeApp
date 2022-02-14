@@ -28,4 +28,12 @@ export class ShoppingListService {
         this.infoMessage = 'These fields cannot be empty.'
       } 
   }
+
+  addIngredients(ingredients:ShoppingList[]){
+      // for(let ingredient of ingredients){
+      //   this.addIngredient(ingredient);
+      // }
+      this.ingredients.push(...ingredients);
+      this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }

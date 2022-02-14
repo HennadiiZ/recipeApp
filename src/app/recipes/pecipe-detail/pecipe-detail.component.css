@@ -1,0 +1,19 @@
+.another_button{
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 5px;
+    cursor: pointer;
+
+
+}
+.another_button.green{
+   background-color: lightgreen;
+}
+
+.another_button.yellow{
+    background-color: lightyellow;
+}
+
+.another_button.blue{
+    background-color: lightblue;
+}
