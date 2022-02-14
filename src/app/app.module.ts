@@ -10,10 +10,10 @@ import { PecipeDetailComponent } from './recipes/pecipe-detail/pecipe-detail.com
 import { RecipeItemComponent } from './recipes/pecipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { BasicHighLightDirective } from './directives/basic-highlight.directive';
-import { BetterHighlightDirective } from './directives/better-highlight.directive';
-import { UnlessDirective } from './directives/unless.directive';
-import { DropDownDirective } from './directives/dropdown.directive';
+import { BasicHighLightDirective } from './_core/directives/basic-highlight.directive';
+import { BetterHighlightDirective } from './_core/directives/better-highlight.directive';
+import { UnlessDirective } from './_core/directives/unless.directive';
+import { DropDownDirective } from './_core/directives/dropdown.directive';
 
 
 @NgModule({
