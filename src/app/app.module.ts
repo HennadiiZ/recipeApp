@@ -14,6 +14,8 @@ import { BasicHighLightDirective } from './_core/directives/basic-highlight.dire
 import { BetterHighlightDirective } from './_core/directives/better-highlight.directive';
 import { UnlessDirective } from './_core/directives/unless.directive';
 import { DropDownDirective } from './_core/directives/dropdown.directive';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { DropDownDirective } from './_core/directives/dropdown.directive';
     BasicHighLightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DropDownDirective
+    DropDownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

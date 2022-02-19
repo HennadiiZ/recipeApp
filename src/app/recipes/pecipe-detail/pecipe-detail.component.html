@@ -18,15 +18,18 @@
             class="btn btn-primary dropdown-toggle" 
             >Manage Recipe <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a href="">add ingredients</a></li>
+                <!-- <li><a href="">add ingredients</a></li>
                 <li><a href="">edit recipe</a></li>
-                <li><a href="">delete recipe</a></li>
+                <li><a href="">delete recipe</a></li> -->
+                <li><a >add ingredients</a></li>
+                <li><a >edit recipe</a></li>
+                <li><a >delete recipe</a></li>
             </ul>
         </div>
         <div class="another_button green"
         (click)="onAddToShoppingList()"
         ><a >add ingredients</a></div>
-        <div class="another_button yellow"><a >edit recipe</a></div>
+        <div class="another_button yellow"><a (click)="onEditRecipe()">edit recipe</a></div>
         <div class="another_button blue"><a >delete recipe</a></div>
     </div>
 </div>
