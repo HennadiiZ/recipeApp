@@ -7,17 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  getValue = 'recipe';
+  //getValue = 'recipe';
   
-  onNavigate(str: string){
-    console.log(str)
-    this.getValue = str 
-
-    // if(this.getValue == 'recipe'){
-    //    return true
-    // }else{
-    //   return false
-    // }
-    
-  }
+  // onNavigate(str: string){
+  //   console.log(str)
+  //   this.getValue = str 
+  // }
 }

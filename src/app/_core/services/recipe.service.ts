@@ -1,4 +1,5 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Recipe } from 'src/app/recipes/recipe.model';
 import { ShoppingList } from 'src/app/shared/shopping-list.model';
 import { ShoppingListService } from './shopping-list.service';
@@ -8,7 +9,8 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class RecipeService {
 
-  recipeSelected = new EventEmitter<Recipe>();
+  // recipeSelected = new EventEmitter<Recipe>();
+  recipeSelected = new Subject<Recipe>();
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -32,8 +34,6 @@ export class RecipeService {
       ]
     )
   ];
-
-
 
   getRecipes(){
     return this.recipes.slice(); // this will simply return a new array , not old recipes. just a copy

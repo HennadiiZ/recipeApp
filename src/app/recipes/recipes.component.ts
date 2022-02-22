@@ -10,6 +10,7 @@ import { Recipe } from './recipe.model';
 export class RecipesComponent implements OnInit {
 
   selectedRecipe!: Recipe;
+
   constructor(private recipeService: RecipeService){}
 
   ngOnInit(): void {
@@ -21,8 +22,6 @@ export class RecipesComponent implements OnInit {
     )
   }
 
-  onRecipeSelect(){
-
-  }
+  onRecipeSelect(){}
 
 }
