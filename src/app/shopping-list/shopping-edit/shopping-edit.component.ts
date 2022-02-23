@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ShoppingList } from 'src/app/shared/shopping-list.model';
 import { ShoppingListService } from 'src/app/_core/services/shopping-list.service';
 
@@ -19,12 +20,17 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onAddItem(){
-
       const newIngredient = new ShoppingList(this.nameInputRef.nativeElement.value, this.amountInputRef.nativeElement.value);
       this.shoppingListService.addIngredient(newIngredient);
       this.nameInputRef.nativeElement.value = ''
       this.amountInputRef.nativeElement.value = ''
   }
+
+  // onAddItem(form: any){
+  //   const newIngredient = new ShoppingList(form.value.name , form.value.amount);
+  //   this.shoppingListService.addIngredient(newIngredient);
+  //   console.log(form.value.name)
+  // }
 
   delete(){
 
