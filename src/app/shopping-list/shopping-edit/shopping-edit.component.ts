@@ -60,11 +60,13 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   // }
 
   delete(){
-
+    
   }
 
   clear(){
-
+    this.nameInputRef.nativeElement.value = ''
+    this.amountInputRef.nativeElement.value = ''
+    this.editMode = false; 
   }
 
   submit(){
