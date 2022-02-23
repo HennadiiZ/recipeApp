@@ -9,6 +9,7 @@ export class ShoppingListService {
 
   // ingredientsChanged = new EventEmitter<ShoppingList[]>();
   ingredientsChanged = new Subject<ShoppingList[]>();
+  startedEditing = new Subject<number>();
   infoMessage: string = '';
 
   private ingredients: ShoppingList[] = []
@@ -17,6 +18,10 @@ export class ShoppingListService {
 
   public getIngredients(): ShoppingList[] {
     return this.ingredients.slice();
+  }
+
+  getIngredient(i: number){
+    return this.ingredients[i];
   }
 
   addIngredient(ingredient:ShoppingList ){

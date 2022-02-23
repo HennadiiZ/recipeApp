@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ShoppingList } from 'src/app/shared/shopping-list.model';
 import { ShoppingListService } from 'src/app/_core/services/shopping-list.service';
 
@@ -8,15 +9,33 @@ import { ShoppingListService } from 'src/app/_core/services/shopping-list.servic
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit {
+export class ShoppingEditComponent implements OnInit, OnDestroy {
+
+   @ViewChild('f') shoppingListForm!: NgForm;
 
   @ViewChild('nameInput') nameInputRef!: ElementRef;
   @ViewChild('amountInput') amountInputRef!: ElementRef;
   @Output() ingredientAdded = new EventEmitter<ShoppingList>();
+  private subscription!: Subscription
+  editMode = false;
+  editedItemIndex!: number;
+  editedItem!: ShoppingList;
 
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
+    this.subscription =  this.shoppingListService.startedEditing
+    .subscribe((i: number) => {
+        this.editMode = true;
+        this.editedItemIndex  = i;
+        this.editedItem = this.shoppingListService.getIngredient(i);
+        // this.shoppingListForm.setValue({
+        //       name: this.editedItem.name, 
+        //       amount: this.editedItem.amount
+        // })
+        this.nameInputRef.nativeElement.value = this.editedItem.name;
+        this.amountInputRef.nativeElement.value = this.editedItem.amount
+    })
   }
 
   onAddItem(){
@@ -42,5 +61,9 @@ export class ShoppingEditComponent implements OnInit {
 
   submit(){
 
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
