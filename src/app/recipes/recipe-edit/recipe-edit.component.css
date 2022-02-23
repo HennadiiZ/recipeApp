@@ -1,0 +1,11 @@
+button{
+    margin-left: 10px;
+}
+
+.row{
+    margin-left:20px;
+}
+
+.form-flex{
+    display: flex;
+}
