@@ -7,3 +7,11 @@
 /* .ul{
     display: flex;
 } */
+
+.menu-by-me{
+    list-style-type: none;
+    cursor: pointer;
+}
+.menu-by-me a:hover{
+    color: #ccc;
+}

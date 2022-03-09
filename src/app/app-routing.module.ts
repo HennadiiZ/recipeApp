@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PecipeDetailComponent } from './recipes/pecipe-detail/pecipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
@@ -20,7 +21,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
