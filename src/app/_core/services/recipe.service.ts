@@ -11,6 +11,7 @@ export class RecipeService {
 
   // recipeSelected = new EventEmitter<Recipe>();
   recipeSelected = new Subject<Recipe>();
+  recipesChanged = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -34,6 +35,11 @@ export class RecipeService {
       ]
     )
   ];
+
+  setRecipes(recipes: Recipe[]): void {
+     this.recipes = recipes;
+     this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes(){
     return this.recipes.slice(); // this will simply return a new array , not old recipes. just a copy
